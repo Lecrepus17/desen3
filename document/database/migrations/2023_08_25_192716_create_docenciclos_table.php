@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('docenciclos', function (Blueprint $table) {
+        Schema::create('docen_ciclos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('docente_fk')->constrained(
                 table: 'docentes'
@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('ciclo_fk')->constrained(
                 table: 'ciclos'
             );
+            $table->integer('nivel');
             $table->timestamps();
         });
     }

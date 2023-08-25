@@ -17,20 +17,25 @@ return new class extends Migration
             $table->string('uploads');
             $table->string('justificativa');
             $table->integer('tipo');
-            $table->foreignId('docente_fk')->constrained(
+            $table->foreignId('solicitante_fk')->constrained(
+                table: 'docentes'
+            )->nullable();
+            $table->foreignId('substituto_fk')->constrained(
                 table: 'docentes'
             )->nullable();
             $table->foreignId('disciplina_fk')->constrained(
                 table: 'disciplinas'
             )->nullable();
+            $table->foreignId('disciplina_substituta_fk')->constrained(
+                table: 'disciplinas'
+            )->nullable();
             $table->foreignId('user_fk')->constrained(
                 table: 'users'
             )->nullable();
-            $table->dateTime('ciencia')->nullable();
             $table->dateTime('data_devolucao')->nullable();
             $table->dateTime('chefia')->nullable();
             $table->dateTime('coordenacao')->nullable();
-            $table->integer('atualizar')->nullable();
+            $table->boolean('autorizar')->nullable();
             $table->timestamps();
         });
     }
