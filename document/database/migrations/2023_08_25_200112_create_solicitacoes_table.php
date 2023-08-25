@@ -32,6 +32,9 @@ return new class extends Migration
             $table->foreignId('user_fk')->constrained(
                 table: 'users'
             )->nullable();
+            $table->foreignId('ciclo_fk')->constrained(
+                table: 'ciclos'
+            )->nullable();
             $table->dateTime('data_devolucao')->nullable();
             $table->dateTime('chefia')->nullable();
             $table->dateTime('coordenacao')->nullable();
@@ -39,7 +42,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
