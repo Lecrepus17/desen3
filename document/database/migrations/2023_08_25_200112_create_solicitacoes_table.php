@@ -39,6 +39,7 @@ return new class extends Migration
             $table->dateTime('chefia')->nullable();
             $table->dateTime('coordenacao')->nullable();
             $table->boolean('autorizar')->nullable();
+            $table->boolean('estado')->nullable();
             $table->timestamps();
         });
     }
