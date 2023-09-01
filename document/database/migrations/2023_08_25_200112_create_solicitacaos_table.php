@@ -41,8 +41,8 @@ return new class extends Migration
             $table->foreignId('turma_fk')->nullable()->constrained(
                 table: 'turmas'
             );
-            $table->boolean('ciencia_chefia')->nullable();
-            $table->boolean('ciencia_coordenacao')->nullable();
+            $table->dateTime('ciencia_chefia')->nullable();
+            $table->dateTime('ciencia_coordenacao')->nullable();
             $table->dateTime('data_devolucao')->nullable();
             $table->boolean('autorizar')->nullable();
             $table->integer('status')->nullable();
