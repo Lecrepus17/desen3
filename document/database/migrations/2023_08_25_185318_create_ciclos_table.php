@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ciclos', function (Blueprint $table) {
             $table->id();
-            $table->date('ano');
+            $table->year('ano');
             $table->integer('semestre');
             $table->date('inicio');
             $table->date('fim');
