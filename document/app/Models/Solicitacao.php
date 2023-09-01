@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Solicitacao extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'data',
         'uploads',
@@ -19,11 +20,13 @@ class Solicitacao extends Model
         'disciplina_substituta_fk',
         'user_fk',
         'ciclo_fk',
+        'chefia_fk',
+        'coordenacao_fk',
+        'turma_fk',
+        'ciencia_chefia',
+        'ciencia_coordenacao',
         'data_devolucao',
-        'etapa',
-        'chefia',
-        'coordenacao',
         'autorizar',
-        'estado',
+        'status',
     ];
 }

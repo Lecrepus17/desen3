@@ -17,30 +17,35 @@ return new class extends Migration
             $table->string('uploads');
             $table->string('justificativa');
             $table->integer('tipo');
-            $table->foreignId('solicitante_fk')->constrained(
+            $table->foreignId('solicitante_fk')->nullable()->constrained(
                 table: 'docentes'
-            )->nullable();
-            $table->foreignId('substituto_fk')->constrained(
+            );
+            $table->foreignId('substituto_fk')->nullable()->constrained(
                 table: 'docentes'
-            )->nullable();
-            $table->foreignId('disciplina_fk')->constrained(
+            );
+            $table->foreignId('disciplina_fk')->nullable()->constrained(
                 table: 'disciplinas'
-            )->nullable();
-            $table->foreignId('disciplina_substituta_fk')->constrained(
+            );
+            $table->foreignId('disciplina_substituta_fk')->nullable()->constrained(
                 table: 'disciplinas'
-            )->nullable();
-            $table->foreignId('user_fk')->constrained(
-                table: 'users'
-            )->nullable();
-            $table->foreignId('ciclo_fk')->constrained(
+            );
+            $table->foreignId('ciclo_fk')->nullable()->constrained(
                 table: 'ciclos'
-            )->nullable();
+            );
+            $table->foreignId('chefia_fk')->nullable()->constrained(
+                table: 'chefias'
+            );
+            $table->foreignId('coordenacao_fk')->nullable()->constrained(
+                table: 'coordenacaos'
+            );
+            $table->foreignId('turma_fk')->nullable()->constrained(
+                table: 'turmas'
+            );
+            $table->boolean('ciencia_chefia')->nullable();
+            $table->boolean('ciencia_coordenacao')->nullable();
             $table->dateTime('data_devolucao')->nullable();
-            $table->integer('etapa')->nullable();
-            $table->dateTime('chefia')->nullable();
-            $table->dateTime('coordenacao')->nullable();
             $table->boolean('autorizar')->nullable();
-            $table->boolean('estado')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

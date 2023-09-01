@@ -17,19 +17,23 @@ class SolicitacaoSeeder extends Seeder
             'data' => now(),
             'uploads' => 'nome_do_arquivo.pdf',
             'justificativa' => 'Justificativa da solicitação',
-            'tipo' => 1, // Substitua pelo tipo desejado.
+            'tipo' => 1,
             'solicitante_fk' => 1, // Substitua pelo ID do docente solicitante.
-            'substituto_fk' => 2, // Substitua pelo ID do docente substituto.
             'disciplina_fk' => 1, // Substitua pelo ID da disciplina.
-            'disciplina_substituta_fk' => 2, // Substitua pelo ID da disciplina substituta.
-            'user_fk' => 3, // Substitua pelo ID do usuário associado.
             'ciclo_fk' => 1, // Substitua pelo ID do ciclo.
-            'data_devolucao' => null,
-            'etapa' => null,
-            'chefia' => null,
-            'coordenacao' => null,
-            'autorizar' => null,
-            'estado' => null,
+            'turma_fk' => 1, // Substitua pelo ID da turma.
+        ]);
+
+        // Segunda solicitação com IDs diferentes.
+        Solicitacao::create([
+            'data' => now(),
+            'uploads' => 'nome_do_arquivo2.pdf',
+            'justificativa' => 'Justificativa da segunda solicitação',
+            'tipo' => 2,
+            'solicitante_fk' => 2, // Substitua pelo ID do docente solicitante da segunda solicitação.
+            'disciplina_fk' => 2, // Substitua pelo ID da disciplina da segunda solicitação.
+            'ciclo_fk' => 2, // Substitua pelo ID do ciclo da segunda solicitação.
+            'turma_fk' => 1, // Substitua pelo ID da turma da segunda solicitação.
         ]);
     }
 }
