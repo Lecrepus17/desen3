@@ -36,6 +36,7 @@ return new class extends Migration
                 table: 'ciclos'
             )->nullable();
             $table->dateTime('data_devolucao')->nullable();
+            $table->integer('etapa')->nullable();
             $table->dateTime('chefia')->nullable();
             $table->dateTime('coordenacao')->nullable();
             $table->boolean('autorizar')->nullable();
