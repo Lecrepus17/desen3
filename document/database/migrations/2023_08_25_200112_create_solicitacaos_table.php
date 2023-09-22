@@ -29,6 +29,7 @@ return new class extends Migration
             $table->foreignId('disciplina_substituta_fk')->nullable()->constrained(
                 table: 'disciplinas'
             );
+            $table->dateTime('data_subistituto')->nullable();
             $table->foreignId('ciclo_fk')->nullable()->constrained(
                 table: 'ciclos'
             );
