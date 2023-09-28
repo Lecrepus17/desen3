@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('solicitacaos', function (Blueprint $table) {
             $table->id();
             $table->dateTime('data');
-            $table->string('uploads');
+            $table->string('uploads')->nullable();
             $table->string('justificativa');
             $table->integer('tipo');
             $table->foreignId('solicitante_fk')->nullable()->constrained(
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->foreignId('disciplina_substituta_fk')->nullable()->constrained(
                 table: 'disciplinas'
             );
+            $table->dateTime('data_subistituto')->nullable();
             $table->foreignId('ciclo_fk')->nullable()->constrained(
                 table: 'ciclos'
             );
