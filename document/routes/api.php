@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/docente', [CicloController::class, 'showDocente']);
+Route::post('/createDoc', [CicloController::class, 'createDocente']);
 
 Route::get('/curso', [CicloController::class, 'showCurso']);
 Route::get('/curso/{id}', [CicloController::class, 'getCurso']);
@@ -33,3 +34,5 @@ Route::get('/turma', [CicloController::class, 'showTurma']);
 Route::get('/ciclo', [CicloController::class, 'showCiclo']);
 
 Route::get('/docCiclo', [CicloController::class, 'showDocen_ciclo']);
+
+Route::get('/oferta', [CicloController::class, 'showOferta']);

@@ -7,7 +7,9 @@ use App\Models\Curso;
 use App\Models\Disciplina;
 use App\Models\Docente;
 use App\Models\Docen_ciclo;
+use App\Models\Doc_di;
 use App\Models\Turma;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CicloController extends Controller
@@ -15,15 +17,25 @@ class CicloController extends Controller
     public function showDocente(){
        $docente = Docente::all();
 
-       return $docente;
+       return response()->json([$docente]);
     }
 
     public function createDocente(Request $request){
-        $dados = $request->validated([
-            'name' => 'required|string',
+        $request->validate([
             'siape' => 'required|string',
+            'user_fk' => 'required|string'
         ]);
 
+        $doc = new Docente();
+        $doc->siape = $request->input('siape');
+        $doc->user_fk = $request->(User::all('user_fk'));
+
+
+        $doc->save();
+
+        return response()->json([
+            'message' => 'Criado com sucesso',
+            'docente' => $doc]);
     }
 
     public function showCurso(){
@@ -67,5 +79,11 @@ class CicloController extends Controller
         $docCiclo = Docen_ciclo::all();
 
         return $docCiclo;
+    }
+
+    public function showOferta(){
+        $oferta = Doc_di::all();
+
+        return $oferta;
     }
 }
