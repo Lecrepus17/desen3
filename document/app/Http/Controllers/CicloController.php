@@ -18,7 +18,11 @@ class CicloController extends Controller
        return $docente;
     }
 
-    public function createDocente(){
+    public function createDocente(Request $request){
+        $dados = $request->validated([
+            'name' => 'required|string',
+            'siape' => 'required|string',
+        ]);
 
     }
 
