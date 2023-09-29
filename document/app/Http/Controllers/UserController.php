@@ -4,19 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Docente;
+
 
 class UserController extends Controller
 {
     public function criarUsuario(Request $request)
     {
-        // Valide os dados recebidos do formulário
+        // validando os dados recebidos do formulário
         $request->validate([
             'nome' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'senha' => 'required|string|min:8',
         ]);
 
-        // Crie um novo usuário
+        // criando um novo usuário
         $user = new User();
         $user->nome = $request->input('nome');
         $user->email = $request->input('email');
@@ -24,8 +26,19 @@ class UserController extends Controller
 
         $user->save();
 
+
+        $request->validate([
+            'siape' => 'required|integer|unique:docentes,siape',
+        ]);
+
+        // Criando docente
+        $docente = new Docente();
+        $docente->siape = $request->input('siape');
+
+        $docente->save();
+
         // Redirecione ou retorne uma resposta de sucesso
-       // return redirect('/usuarios')->with('success', 'Usuário criado com sucesso!');
+        return redirect('/usuarios')->with('success', 'Usuário criado com sucesso!');
     }
 
 }
