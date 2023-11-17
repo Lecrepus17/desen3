@@ -28,7 +28,7 @@ class CicloController extends Controller
 
         $doc = new Docente();
         $doc->siape = $request->input('siape');
-        $doc->user_fk = $request->(User::all('user_fk'));
+        //$doc->user_fk = $request->(User::all('user_fk'));
 
 
         $doc->save();
