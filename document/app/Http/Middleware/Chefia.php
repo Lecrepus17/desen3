@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Admin
+class Chefia
 {
     /**
      * Handle an incoming request.
@@ -22,6 +22,5 @@ class Admin
 
        // return $next($request);
         return redirect('/home')->with('error', 'Acesso não autorizado.');
-
     }
 }
