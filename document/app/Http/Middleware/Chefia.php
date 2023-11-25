@@ -15,12 +15,23 @@ class Chefia
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user() && auth()->user()->admin == 1) {
-            return $next($request);
-        }
+               // Verifica se o usuário autenticado é responsável por alguma chefia ativa
+            if ($this->userChefia(auth()->user())) {
+                return $next($request);
+            }
+    
+            return redirect('/home')->with('error', 'Acesso não autorizado.');
+    
+    }
 
+    private function userChefia(User $user): bool
+    {
+        // Obtém as chefias ativas associadas ao usuário
+        $chefiasAtivas = Chefia::where('docente_fk', $user->docente->id)
+            ->whereDate('inicio', '<=', now())  // Verifica se o início está no passado ou hoje
+            ->whereDate('fim', '>=', now())     // Verifica se o fim está no futuro ou hoje
+            ->exists();
 
-       // return $next($request);
-        return redirect('/home')->with('error', 'Acesso não autorizado.');
+        return $chefiasAtivas;
     }
 }

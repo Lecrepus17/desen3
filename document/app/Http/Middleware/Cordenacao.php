@@ -15,12 +15,22 @@ class Cordenacao
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user() && auth()->user()->admin == 1) {
+        if ($this->userCoordenacao(auth()->user())) {
             return $next($request);
         }
 
-
-       // return $next($request);
         return redirect('/home')->with('error', 'Acesso não autorizado.');
-    }
+
+}
+
+private function userCoordenacao(User $user): bool
+{
+    // Obtém as chefias ativas associadas ao usuário
+    $coordenAtivas = Coordenacao::where('docente_fk', $user->docente->id)
+        ->whereDate('inicio', '<=', now())  // Verifica se o início está no passado ou hoje
+        ->whereDate('fim', '>=', now())     // Verifica se o fim está no futuro ou hoje
+        ->exists();
+
+    return $coordenAtivas;
+}
 }
