@@ -5,8 +5,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\User;
+use App\Models\Chefia;
 
-class Chefia
+class IsChefia
 {
     /**
      * Handle an incoming request.
@@ -19,9 +21,9 @@ class Chefia
             if ($this->userChefia(auth()->user())) {
                 return $next($request);
             }
-    
+
             return redirect('/home')->with('error', 'Acesso não autorizado.');
-    
+
     }
 
     private function userChefia(User $user): bool
