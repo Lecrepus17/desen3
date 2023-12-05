@@ -15,8 +15,12 @@ class IsCoordenacao
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
+    
         if ($this->userCoordenacao(auth()->user())) {
             return $next($request);
         }

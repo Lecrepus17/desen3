@@ -15,8 +15,13 @@ class IsChefia
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
+
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
+        
                // Verifica se o usuário autenticado é responsável por alguma chefia ativa
             if ($this->userChefia(auth()->user())) {
                 return $next($request);
