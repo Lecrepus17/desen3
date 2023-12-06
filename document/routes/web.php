@@ -19,3 +19,16 @@ Route::get('/', function () {
 });
 
 Route::get('/usuarios', [UserController::class, 'usuarios']);
+
+Route::get('/login', function () {
+    return view('login'); //modificar
+});
+
+Route::get('/listagem-solicitacoes', function () {
+    return view('listagem_solicitacoes'); // mod
+});
+
+Route::get('/formulario-solicitacao', function () {
+    return view('formulario_solicitacao'); // mod
+});
+
