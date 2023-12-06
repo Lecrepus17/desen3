@@ -1,0 +1,72 @@
+.todo{
+    background-color: #6030DA;
+    width: 90%;
+    border-radius: 20px;
+    color: #fff;
+    margin-left: 10%;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 40%;
+}
+.form2{
+    margin-left: 0%;
+    text-align: center;
+}
+.form3{
+    margin-left: 0%;
+    text-align: center;
+    margin-top: 5%;
+}
+.form3 textarea{
+    height: 100px;
+    width: 600px;
+    border-radius: 10px;
+}
+.form4{
+    margin-left: 0%;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+.form5{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 40%;
+    margin-bottom: 2%;
+}
+.form6{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 40%;
+}
+.form7{
+    margin-left: 0%;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+.sub{
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+    margin-top: 2%;
+    border-radius: 100px;
+    padding: 1% 2%;
+    margin-bottom: 5%;
+}
+.estilo_comp{
+    border-radius: 100px;
+    padding: 1% 2%;
+}
+.linha_divisa{
+    border: 1px solid gray;
+}

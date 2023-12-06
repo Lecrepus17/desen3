@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(202, 202, 202);
+    width: 50%;
+    height: 500px;
+    margin-left: 25%;
+    margin-top: 10%;
+    box-shadow: 20px 20px 50px 25px #BBB4E4;
+    border-radius: 10px;
+} 
+section .container .opcao_menu1{
+    width: 50%;
+    height: 500px;
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+    
+}
+section .container .opcao_menu2{
+    width: 50%;
+    height: 500px;
+    background-color: #6030DA;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+section .container .opcao_menu2 .title_login{
+    color: #FFF;
+    font-family: Archivo Black;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+    margin-bottom: 8%;
+}
+section .container .opcao_menu2 form{
+    display: flex;
+    flex-direction: column;
+
+}
+section .container .opcao_menu2 form .campos{
+    display: flex;
+    justify-content: center;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    width: 70%;
+    border-radius: 50px;
+    border: none;
+    padding: 3%;
+    
+}
+section .container .opcao_menu2 form .botao{
+    background: linear-gradient(90deg, #EDBF22 0%, #F7951E 96.35%, #F7951E 99.99%, rgba(237, 191, 34, 0.00) 100%);
+    border-radius: 50px;
+    border: none;
+    padding: 3.5% 8%;
+    width: 35%;
+    margin-left: 15%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    margin-left: 15%;
+    
+  
+}
+section .container .opcao_menu2 form a.botaoo{
+    background: linear-gradient(90deg, #EDBF22 0%, #F7951E 96.35%, #F7951E 99.99%, rgba(237, 191, 34, 0.00) 100%);
+    border-radius: 50px;
+    border: none;
+    padding: 3% ;
+    width: 27%;
+    margin-left: 15%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    margin-left:58%;
+    margin-top: -10%;
+    
+}
