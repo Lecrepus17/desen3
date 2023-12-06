@@ -106,9 +106,9 @@ section .container .opcao_menu2 form a.botaoo{
     width: 80%;
     text-align: center;
     color: white;
-    margin-top: -50%;
+    margin-top: -30%;
 }
-}
+
 th, td{
     padding: 1%;
 }
