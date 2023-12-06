@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciclo;
+use App\Models\Curso;
+use App\Models\Disciplina;
 use App\Models\Docente;
 use App\Models\Docen_ciclo;
 use App\Models\Doc_di;
@@ -13,6 +15,22 @@ use Symfony\Component\Console\Input\Input;
 class CicloController extends Controller
 {
 
+
+    public function createCurso(Request $request){
+
+        $curso = new Curso;
+        $curso->nome = $request->input('nome');
+
+        $curso->save();
+
+    }
+
+    public function createDiscilpina(Request $request){
+        $disciplina = new Disciplina;
+        $disciplina->nome = $request->input('nome');
+
+        $disciplina->save();
+    }
 
     public function ciclo(Request $request){
 
