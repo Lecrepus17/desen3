@@ -47,7 +47,7 @@ class UserController extends Controller
     }
 
 
-<<<<<<< Updated upstream
+
     public function promoverParaChefia(User $user)
     {
         // Verifica se o usuário já é chefe
@@ -82,13 +82,7 @@ class UserController extends Controller
 
         return redirect('/usuarios')->with('success', 'Usuário promovido a coordenador com sucesso.');
     }
-=======
-    public function Form()
-    {
-        return view('teste');
-    }
 
->>>>>>> Stashed changes
 }
 
 

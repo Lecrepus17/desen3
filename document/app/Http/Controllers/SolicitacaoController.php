@@ -26,7 +26,6 @@ class SolicitacaoController extends Controller
         $novoRegistro->solicitante_fk = $solicitanteId;
         $novoRegistro->disciplina_fk = $request->input('disciplina_fk');
         $novoRegistro->turma_fk = $request->input('turma_fk');
-        $novoRegistro->status = $request->input('status');
         // Salve o novo registro no banco de dados
         $novoRegistro->save();
 
@@ -95,7 +94,7 @@ class SolicitacaoController extends Controller
         $registroExistente->ciencia_chefia = now();
         if ($request->input('autorizar') == 1) {
             $registroExistente->status += 1;
-        }elseif($request->input('autorizar') == 1){
+        }elseif($request->input('autorizar') == -1){
             $registroExistente->status = -1;
         }
 
