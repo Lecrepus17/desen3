@@ -95,3 +95,25 @@ section .container .opcao_menu2 form a.botaoo{
     margin-top: -10%;
     
 }
+.solici_titu{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    top: 80%;
+}
+.tabela_sol{
+    width: 80%;
+    text-align: center;
+    color: white;
+    margin-top: -50%;
+}
+}
+th, td{
+    padding: 1%;
+}
+td button{
+    padding: 1%;
+    border-radius: 50px;
+    
+}
