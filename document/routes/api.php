@@ -21,8 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/turma', [CicloController::class, 'showTurma']);
-
-Route::get('/ciclo', [CicloController::class, 'createCiclo']);
+Route::get('/ciclo', [CicloController::class, 'ciclo']);
 
 Route::get('/oferta', [CicloController::class, 'showOferta']);
+
+Route::get('/showCiclo', [CicloController::class, 'showCIclo']);

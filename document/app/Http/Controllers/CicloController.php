@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciclo;
-use App\Models\Curso;
-use App\Models\Disciplina;
 use App\Models\Docente;
 use App\Models\Docen_ciclo;
 use App\Models\Doc_di;
-use App\Models\Turma;
-use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 
@@ -17,13 +14,7 @@ class CicloController extends Controller
 {
 
 
-    public function showTurma(){
-        $turma = Turma::all();
-
-        return $turma;
-    }
-
-    public function createCiclo(Request $request){
+    public function ciclo(Request $request){
 
         $ciclo = new Ciclo;
         $ciclo->ano = $request->input('ano');
@@ -31,23 +22,44 @@ class CicloController extends Controller
         $ciclo->inicio = $request->input('inicio');
         $ciclo->fim = $request->input('fim');
 
+
         $ciclo->save();
 
         return redirect('/ciclo')->with('success', 'Ciclo inserido com sucesso.');
     }
 
+    public function showCiclo(){
+        $ciclo = Ciclo::all();
+
+        return $ciclo;
+    }
+
     public function createDocen_ciclo(Ciclo $ciclo, Docente $docente){
 
-        if($docente->ciclo){
+        if($docente->ciclo->id){
             return redirect('/docCiclo')->with('error', 'Docente já está nesse ciclo.');
         };
 
         Docen_ciclo::create([
             'docente_fk' => $docente->id,
-            'ciclo_fk' => $ciclo->id
+            'ciclo_fk' => $ciclo->id,
         ]);
 
         return redirect('/docCiclo')->with('success', 'Docente foi inserido nesse ciclo.');
+    }
+
+
+
+    public function createOferta(){
+
+
+
+        Doc_di::Create([
+            'disciplina_fk',
+            'docente_fk',
+            'turma_fk',
+            'ciclo_fk',
+        ]);
     }
 
     public function showOferta(){
