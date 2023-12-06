@@ -30,6 +30,7 @@ class UserController extends Controller
 
         $user->save();
 
+        $userID = $user->id;
 
         $request->validate([
             'siape' => 'required|integer|unique:docentes,siape',
@@ -38,12 +39,13 @@ class UserController extends Controller
         // Criando docente
         $docente = new Docente();
         $docente->siape = $request->input('siape');
-
+        $docente->user_fk = $userID;
         $docente->save();
 
         // Redirecione ou retorne uma resposta de sucesso
         return redirect('/usuarios')->with('success', 'Usuário criado com sucesso!');
     }
+
 
 
     public function promoverParaChefia(User $user)
@@ -80,6 +82,7 @@ class UserController extends Controller
 
         return redirect('/usuarios')->with('success', 'Usuário promovido a coordenador com sucesso.');
     }
+
 }
 
 

@@ -23,12 +23,14 @@ return new class extends Migration
             $table->foreignId('substituto_fk')->nullable()->constrained(
                 table: 'docentes'
             );
-            $table->foreignId('disciplina_fk')->nullable()->constrained(
-                table: 'disciplinas'
-            );
-            $table->foreignId('disciplina_substituta_fk')->nullable()->constrained(
-                table: 'disciplinas'
-            );
+            $table->string('disciplina_fk')->nullable();;
+            //$table->foreignId('disciplina_fk')->nullable()->constrained(
+            //    table: 'disciplinas'
+            //);
+            $table->string('disciplina_substituta_fk')->nullable();;
+            //$table->foreignId('disciplina_substituta_fk')->nullable()->constrained(
+            //    table: 'disciplinas'
+            //);
             $table->dateTime('data_subistituto')->nullable();
             $table->foreignId('ciclo_fk')->nullable()->constrained(
                 table: 'ciclos'
@@ -39,13 +41,13 @@ return new class extends Migration
             $table->foreignId('coordenacao_fk')->nullable()->constrained(
                 table: 'coordenacaos'
             );
-            $table->foreignId('turma_fk')->nullable()->constrained(
-                table: 'turmas'
-            );
+            $table->string('turma_fk')->nullable();;
+            //$table->foreignId('turma_fk')->nullable()->constrained(
+            //    table: 'turmas'
+            //);
             $table->dateTime('ciencia_chefia')->nullable();
             $table->dateTime('ciencia_coordenacao')->nullable();
             $table->dateTime('data_devolucao')->nullable();
-            $table->boolean('autorizar')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
         });
