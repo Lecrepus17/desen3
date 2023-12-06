@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('ciclo_fk')->constrained(
                 table: 'ciclos'
             );
-            $table->integer('nivel');
+            //$table->integer('nivel');
             $table->timestamps();
         });
     }

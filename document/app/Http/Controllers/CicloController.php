@@ -11,57 +11,11 @@ use App\Models\Doc_di;
 use App\Models\Turma;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class CicloController extends Controller
 {
-    public function showDocente(){
-       $docente = Docente::all();
 
-       return response()->json([$docente]);
-    }
-
-    public function createDocente(Request $request){
-        $request->validate([
-            'siape' => 'required|string',
-            'user_fk' => 'required|string'
-        ]);
-
-        $doc = new Docente();
-        $doc->siape = $request->input('siape');
-        //$doc->user_fk = $request->(User::all('user_fk'));
-
-
-        $doc->save();
-
-        return response()->json([
-            'message' => 'Criado com sucesso',
-            'docente' => $doc]);
-    }
-
-    public function showCurso(){
-        $curso = Curso::all();
-
-        return $curso;
-    }
-
-
-    public function getCurso(string $id){
-        $curso = Curso::findOrFail($id);
-
-        return $curso;
-    }
-
-    public function showDisciplina(){
-        $disciplina = Disciplina::all();
-
-        return $disciplina;
-    }
-
-    public function getDisciplina(string $id){
-        $disciplina = Disciplina::findOrFail($id);
-
-        return $disciplina;
-    }
 
     public function showTurma(){
         $turma = Turma::all();
@@ -69,16 +23,31 @@ class CicloController extends Controller
         return $turma;
     }
 
-    public function showCiclo(){
-        $ciclo = Ciclo::all();
+    public function createCiclo(Request $request){
 
-        return $ciclo;
+        $ciclo = new Ciclo;
+        $ciclo->ano = $request->input('ano');
+        $ciclo->semestre = $request->input('semestre');
+        $ciclo->inicio = $request->input('inicio');
+        $ciclo->fim = $request->input('fim');
+
+        $ciclo->save();
+
+        return redirect('/ciclo')->with('success', 'Ciclo inserido com sucesso.');
     }
 
-    public function showDocen_ciclo(){
-        $docCiclo = Docen_ciclo::all();
+    public function createDocen_ciclo(Ciclo $ciclo, Docente $docente){
 
-        return $docCiclo;
+        if($docente->ciclo){
+            return redirect('/docCiclo')->with('error', 'Docente já está nesse ciclo.');
+        };
+
+        Docen_ciclo::create([
+            'docente_fk' => $docente->id,
+            'ciclo_fk' => $ciclo->id
+        ]);
+
+        return redirect('/docCiclo')->with('success', 'Docente foi inserido nesse ciclo.');
     }
 
     public function showOferta(){
